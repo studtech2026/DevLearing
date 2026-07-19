@@ -144,5 +144,8 @@ __pycache__/
 # IntelliJ
 out/
 
-# Project-specific
-*.log
+# Project-specific runtime data
+logs/
+uploads/
+temp_test_script.py
+

@@ -1,22 +1,15 @@
-from app.schemas.auth import RegisterRequest, LoginRequest
-from app.utils.auth import create_access_token, hash_password, verify_password
+from app.core.security import create_access_token, hash_password, verify_password
+from app.schemas.auth import LoginRequest, RegisterRequest
 
 
-def test_register_schema_accepts_profile_fields():
+def test_register_schema_accepts_registration_fields():
     payload = RegisterRequest(
         name="Alice",
         email="alice@example.com",
         password="secret123",
         username="alice",
-        phone="1234567890",
-        gender="female",
-        city="New York",
-        country="USA",
-        bio="Hello there",
     )
     assert payload.username == "alice"
-    assert payload.gender == "female"
-    assert payload.city == "New York"
 
 
 def test_login_schema_and_password_flow():
